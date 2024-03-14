@@ -33,20 +33,32 @@ public class EmployeeAppApplication implements CommandLineRunner{
 		empDto.setFname("Subhankar");
 		empDto.setLname("Chakraborty");
 		empDto.setPhone_num("8512023075,8760089902");
-		empDto.setSalary(102000.34d);
+		empDto.setSalary(1200000.34d);
 		
 		employeeDetails.saveEmployeeDetails(empDto);
 		EmployeeDto empDto2=new EmployeeDto();
-		empDto2.setAddress("C602 Bhagwatishilp");
+		empDto2.setAddress("M91 Mayurbihar phase 3");
 		
-		empDto2.setDoj(parseDateSting("28-Dec-2021"));
+		empDto2.setDoj(parseDateSting("28-Oct-2021"));
 		empDto2.setEmail("sameer_c@gmail.com");
 		empDto2.setFname("Sameer");
 		empDto2.setLname("Sabat");
 		empDto2.setPhone_num("8512023079,8960089902");
-		empDto2.setSalary(50000.0d);
+		empDto2.setSalary(1200000.34d);
 		
 		employeeDetails.saveEmployeeDetails(empDto2);
+		
+		EmployeeDto empDto3=new EmployeeDto();
+		empDto3.setAddress("Hinjewadi Brindawan niwas QNo:32");
+		
+		empDto3.setDoj(parseDateSting("09-Feb-2021"));
+		empDto3.setEmail("krunal.gunatra@gmail.com");
+		empDto3.setFname("Krunal");
+		empDto3.setLname("Gunatra");
+		empDto3.setPhone_num("6712023079,8360088002");
+		empDto3.setSalary(700000.34d);
+		
+		employeeDetails.saveEmployeeDetails(empDto3);
 	
 		
 	}
