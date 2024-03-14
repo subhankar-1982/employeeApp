@@ -21,7 +21,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 			+ "   sum(case\r\n"
 			+ "         when EXTRACT(MONTH FROM emp.doj)<5 then emp.salary\r\n"
 			+ "		 when EXTRACT(MONTH FROM emp.doj)=5 and EXTRACT(DAY FROM doj)>15 then emp.salary\r\n"
-			+ "		 else 0\r\n"
+			+ "		 else emp.salary\r\n"
 			+ "		 end)as yearlySalary,\r\n"
 			+ "   \r\n"
 			+ "   CASE WHEN sum(case\r\n"
@@ -88,7 +88,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 			+ "     END as cessAmount		   \r\n"
 			+ "	 \r\n"
 			+ "	 from employee emp group by emp.employee_id, emp.fname,\r\n"
-			+ "    emp.lname",nativeQuery = true)
+			+ "  emp.lname",nativeQuery = true)
 	List<EmployeeView> fetchAllEmployee();
 	
 
