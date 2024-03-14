@@ -28,4 +28,20 @@ public class EmployeeDetailResponse implements Serializable {
 	
 	Double cessAmount;
 
+	@Override
+	public boolean equals(Object obj) {
+		if(this==obj) 
+			return true;
+		if(obj==null || getClass()!=obj.getClass()) {
+			return false;
+		}
+		EmployeeDetailResponse objResp=(EmployeeDetailResponse)obj;
+		return this.emplyeeId==objResp.getEmplyeeId();
+	}
+	
+	@Override
+	public int hashCode() {
+		return Integer.hashCode(emplyeeId.intValue());
+	}
+
 }
