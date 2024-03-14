@@ -30,13 +30,18 @@ public class EmployeeDetailsImpl implements EmployeeDetails {
 			listOfEmplyeeDetails.stream().forEach(x -> {
 				for (EmployeeView view : listOfEmplyeeDetails) {
 					EmployeeDetailResponse response = new EmployeeDetailResponse();
-					response.setEmplyeeId(view.getEmpCode());
-					response.setFname(view.getFirstName());
-					response.setLname(view.getLastName());
-					response.setTaxAmount(view.getTaxAmount());
-					response.setYearlySalary(view.getYearlySalary());
-					response.setCessAmount(view.getCessAmount());
-					employeeDetailResponse.add(response);
+					boolean empExist = employeeDetailResponse.stream()
+							.anyMatch(e -> e.getEmplyeeId().equals(view.getEmpCode()));
+					if (!empExist) {
+						response.setEmplyeeId(view.getEmpCode());
+						response.setFname(view.getFirstName());
+						response.setLname(view.getLastName());
+						response.setTaxAmount(view.getTaxAmount());
+						response.setYearlySalary(view.getYearlySalary());
+						response.setCessAmount(view.getCessAmount());
+						employeeDetailResponse.add(response);
+					}
+
 				}
 			});
 		}
